@@ -1,0 +1,44 @@
+debug = false
+env = "prod"
+logfile = "/opt/weblogs/panda-dev"
+logLevel = "debug"
+messageChannel = "panda_message_dev"
+
+[frontend]
+host = "127.0.0.1"
+port = 9083
+logfile = "/opt/weblogs/log.%Y%m%d"
+cache = false
+dogWeight = [0,15,80,5,0]
+
+[backend]
+host = "127.0.0.1"
+port = 9081
+logfile = "/opt/weblogs/log.%Y%m%d"
+cache = false
+
+
+[api]
+key = "JIOjiHU0lc12iaUFi2993h9"
+aesKey = "&mw*K@ZjzOZuLvmb"
+tokenSecret = "N202!@#$05@8DDFg&kpo9(=:}P+_2212SeDF@ds2+_)_#E*3&%*Dkj@#g~~!@2-dev"
+aesKey256 = "5@8Dg&kpo9(=-(&G5@8Dg&bm234(=-kjg"
+
+[mysql]
+[mysql.panda]
+username = ""
+password = ""
+host = ""
+port = ""
+database = ""
+
+[redis]
+addr = "127.0.0.1:6379"
+password = ""
+
+#客户端连接跳板
+[ssh]
+host = ""
+port = 22
+user = ""
+password = ""
