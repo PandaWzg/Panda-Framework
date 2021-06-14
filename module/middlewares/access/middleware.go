@@ -9,6 +9,7 @@ import (
 )
 
 var defaultAllowIp = "10.*.*.*"
+
 func New() context.Handler {
 	return func(ctx context.Context) {
 		remoteIp := ctx.RemoteAddr()

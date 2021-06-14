@@ -16,7 +16,6 @@ var (
 	}
 )
 
-
 func init() {
 	cobra.OnInitialize(initConfig)
 
@@ -31,7 +30,6 @@ func initConfig() {
 	}
 	log.Init(conf.Config)
 }
-
 
 func Execute() {
 	cobra.CheckErr(rootCmd.Execute())

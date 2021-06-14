@@ -16,7 +16,6 @@ type UserInfo struct {
 	Name string `json:"name"`
 	Age  int    `json:"age"`
 	Sex  int    `json:"sex"`
-
 }
 
 func NewUser(r *redis.Client) *User {

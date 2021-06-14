@@ -30,10 +30,10 @@ type MySQL struct {
 }
 
 type Site struct {
-	Host      string
-	Port      int
-	Logfile   string
-	Cache     bool
+	Host    string
+	Port    int
+	Logfile string
+	Cache   bool
 }
 
 type API struct {
@@ -60,7 +60,6 @@ type SSH struct {
 	User     string
 	Password string
 }
-
 
 var Config *Cfg
 

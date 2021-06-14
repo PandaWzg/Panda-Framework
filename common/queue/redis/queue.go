@@ -1,13 +1,13 @@
 package redis
 
 import (
+	"Panda/common/log"
 	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/go-redis/redis"
 	"time"
-	"Panda/common/log"
 )
 
 type Queue struct {
@@ -63,7 +63,7 @@ func (q *Queue) Consumer(topic string, ctx context.Context) *Queue {
 			case <-ctx.Done():
 				return
 			default:
-				result, err := q.redis.BLPop(30 * time.Second, topic).Result()
+				result, err := q.redis.BLPop(30*time.Second, topic).Result()
 				if err == nil {
 					q.message <- &message{[]byte(result[1])}
 				}

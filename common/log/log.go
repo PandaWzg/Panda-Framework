@@ -1,15 +1,16 @@
 package log
 
 import (
+	"Panda/conf"
 	"fmt"
 	rotatelog "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"time"
-	"Panda/conf"
 )
 
 var logger *zap.Logger
+
 /**
  * 初始化日志
  * logPath 日志文件路径
@@ -31,7 +32,7 @@ func Init(conf *conf.Cfg) *zap.Logger {
 	//}
 	logPath := conf.LogFile + ".log"
 	hook, _ := rotatelog.New(
-		logPath + ".%Y%m%d",
+		logPath+".%Y%m%d",
 		rotatelog.WithLinkName(logPath),
 		rotatelog.WithMaxAge(time.Hour*24*30),
 		rotatelog.WithRotationTime(time.Hour),
@@ -64,7 +65,6 @@ func Init(conf *conf.Cfg) *zap.Logger {
 func timeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 	enc.AppendString(t.Format("2006-01-02 15:04:05"))
 }
-
 
 func Debug(args ...interface{}) {
 	logger.Debug(fmt.Sprint(args...))

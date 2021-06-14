@@ -33,7 +33,6 @@ func (c *controller) success(result ...interface{}) {
 	}
 }
 
-
 func (c *controller) errorCode(code int) {
 	response.New(c.Ctx).Error(code).Format()
 }

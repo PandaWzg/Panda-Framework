@@ -56,20 +56,20 @@ func (r *api) Start(stdCtx context.Context) error {
 	api.Register(serviceWrap)
 
 	//加入中间件
-	api.Router.Use(recovery.New())//捕获异常
-	api.Router.Use(access.New())//安全校验
+	api.Router.Use(recovery.New()) //捕获异常
+	api.Router.Use(access.New())   //安全校验
 
 	api.Party("user").Handle(new(controllers2.UserController))
 
 	//服务启动开始消费mq
 	ctx, cancel := context.WithCancel(context.Background())
-	finish := serviceWrap.User().MqConsumer(ctx,500)
+	finish := serviceWrap.User().MqConsumer(ctx, 500)
 
 	if r.cron {
 		c := cron.New()
 		c.Start()
 		defer c.Stop()
-		_= c.AddFunc("0 */30 * * * ?", serviceWrap.User().CronTask)
+		_ = c.AddFunc("0 */30 * * * ?", serviceWrap.User().CronTask)
 
 	}
 	iris.RegisterOnInterrupt(func() {

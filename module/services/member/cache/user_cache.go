@@ -18,4 +18,5 @@ type Stat struct {
 func NewUserCache(r *redis.Client) *UserCache {
 	return &UserCache{redis: r}
 }
+
 //todo 频控相关code

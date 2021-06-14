@@ -37,7 +37,7 @@ func New() context.Handler {
 				}
 
 				// when stack finishes
-				logMessage := fmt.Sprintf("\nuser:%v,device:%v,version:%v\n", ctx.Values().Get("uid"), ctx.GetHeader("DEVICEID"),ctx.URLParamIntDefault("version_code", 0))
+				logMessage := fmt.Sprintf("\nuser:%v,device:%v,version:%v\n", ctx.Values().Get("uid"), ctx.GetHeader("DEVICEID"), ctx.URLParamIntDefault("version_code", 0))
 				logMessage += fmt.Sprintf("Recovered from a route's Handler('%s')\n", ctx.HandlerName())
 				logMessage += fmt.Sprintf("At Request: %s\n", getRequestLogs(ctx))
 				logMessage += fmt.Sprintf("Trace: %s\n", err)

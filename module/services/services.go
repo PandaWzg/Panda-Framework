@@ -22,7 +22,6 @@ var (
 	DefaultPageSize    = 10
 )
 
-
 type ActiveRecord interface{}
 
 func DBClient() *gorm.DB {
@@ -40,10 +39,10 @@ func DBClient() *gorm.DB {
 
 func RedisClient() *redis.Client {
 	DefaultRedisClient = redis.NewClient(&redis.Options{
-		Addr:     viper.GetString("redis.addr"),
-		Password: viper.GetString("redis.password"),
+		Addr:         viper.GetString("redis.addr"),
+		Password:     viper.GetString("redis.password"),
 		MinIdleConns: 5,
-		PoolSize: 200,
+		PoolSize:     200,
 	})
 
 	_, err := DefaultRedisClient.Ping().Result()
